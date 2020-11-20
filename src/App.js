@@ -2,11 +2,12 @@ import React from "react";
 import "./App.css";
 import { Provider } from "react-redux";
 import store from "./store";
-import Home from "./page/Home";
+import BasicRoute from "./router/router";
+import "bootstrap/dist/css/bootstrap.css";
 const App = () => (
   <Provider store={store}>
     <div className="app">
-      <Home />
+      <BasicRoute />
     </div>
   </Provider>
 );

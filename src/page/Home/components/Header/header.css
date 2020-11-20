@@ -1,0 +1,11 @@
+.headerBox {
+  font-size: 20px;
+}
+
+.headerBox .title {
+  color: white;
+}
+
+.headerBox .trigger {
+  color: white;
+}

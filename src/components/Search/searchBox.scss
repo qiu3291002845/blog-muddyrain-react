@@ -1,0 +1,20 @@
+.searchBox {
+  background-color: #ffffff;
+  height: 65.38px;
+  border-bottom: 1px solid rgba($color: #666666, $alpha: 0.1);
+  border-left: 1px solid rgba($color: #666666, $alpha: 0.1);
+  padding: 0 2rem;
+  .title {
+    color: #999;
+    font-size: 1.25rem;
+  }
+  .searchInput {
+    width: 15rem;
+    border-radius: 20px;
+    color: #333333;
+    span.anticon-search {
+      color: #666;
+      font-size: 18px;
+    }
+  }
+}

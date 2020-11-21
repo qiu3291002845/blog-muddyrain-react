@@ -1,0 +1,30 @@
+@import "~antd/dist/antd.css";
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.marginBox {
+  margin: 16px;
+  padding: 24px;
+  min-height: 280px;
+}
+.ant-pagination-item-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.ant-form-item {
+  display: flex;
+  label {
+    margin: 0;
+    line-height: 2.75rem;
+    height: 2.75rem;
+  }
+  .ant-input-number-input,
+  .ant-input,
+  .ant-picker {
+    height: 2.75rem;
+    border-radius: 5px;
+  }
+}

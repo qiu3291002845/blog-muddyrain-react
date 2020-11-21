@@ -1,5 +1,10 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
-import { HomeReducer, UserReducer } from "./reducer";
+import {
+  HomeReducer,
+  UserReducer,
+  GlobalReducer,
+  ClassifyReducer,
+} from "./reducer";
 import { defaultSaga } from "./saga";
 import createSagaMiddleware from "redux-saga";
 const sagaMiddleware = createSagaMiddleware();
@@ -8,6 +13,8 @@ export default createStore(
   combineReducers({
     home: HomeReducer,
     user: UserReducer,
+    global: GlobalReducer,
+    classify: ClassifyReducer,
   }),
   {},
   applyMiddleware(sagaMiddleware)

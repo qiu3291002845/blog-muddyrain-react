@@ -2,6 +2,7 @@ import React from "react";
 import { Table, Image, Button } from "antd";
 import { connect } from "react-redux";
 import { fromDate } from "../../../Tools/Config";
+import { Link, withRouter } from "react-router-dom";
 const columns = [
   {
     title: "用户名",
@@ -57,7 +58,9 @@ const columns = [
     render: (text, record) => {
       return (
         <div>
-          <Button type="primary">编辑</Button>
+          <Button type="primary">
+            <Link to={`/userEdit/${text.user_id}`}>编辑</Link>
+          </Button>
         </div>
       );
     },
@@ -73,16 +76,24 @@ class UserTable extends React.Component {
   render() {
     const { dataSource } = this.props;
     return (
-      <div
-       className="tableBox"
-      >
-        <Table
-          bordered
-          pagination={pagination}
-          columns={columns}
-          dataSource={dataSource}
-        />
-      </div>
+      <>
+        {/* <Button
+          onClick={this.toEdit}
+          type="default"
+          className="mt-3 ml-3"
+          size="large"
+        >
+          新建
+        </Button> */}
+        <div className="marginBox">
+          <Table
+            bordered
+            pagination={pagination}
+            columns={columns}
+            dataSource={dataSource}
+          />
+        </div>
+      </>
     );
   }
 }
@@ -90,4 +101,4 @@ class UserTable extends React.Component {
 const mapStateProps = (state) => {
   return { ...state.user };
 };
-export default connect(mapStateProps, null)(UserTable);
+export default connect(mapStateProps, null)(withRouter(UserTable));

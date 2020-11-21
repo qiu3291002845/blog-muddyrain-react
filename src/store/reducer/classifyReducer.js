@@ -4,6 +4,7 @@ import { CLASSIFY_RESPONSE_DATA } from "../../Tools/SagaType";
 const initState = {
   dataSource: [],
   visible: false,
+  editId: "",
 };
 export const ClassifyReducer = (state = initState, action) => {
   switch (action.type) {
@@ -18,6 +19,7 @@ export const ClassifyReducer = (state = initState, action) => {
       return {
         ...state,
         visible: !state.visible,
+        editId: action.value,
       };
     default:
       return Object.assign({}, state, action);

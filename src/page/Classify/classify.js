@@ -15,9 +15,14 @@ class Classify extends React.Component {
       <>
         <MNav title="分类列表" />
         <MTable />
-        <MEdit />
+        {this.props.classify.visible ? <MEdit /> : null}
       </>
     );
   }
 }
-export default connect()(Classify);
+const mapStateProps = (state) => {
+  return {
+    classify: { ...state.classify },
+  };
+};
+export default connect(mapStateProps)(Classify);

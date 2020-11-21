@@ -40,7 +40,10 @@ class classifyTable extends React.Component {
         render: (text, row) => {
           return (
             <>
-              <Button type="primary" onClick={() => this.props.toggleModal()}>
+              <Button
+                type="primary"
+                onClick={() => this.props.toggleModal(text.classify_id)}
+              >
                 编辑
               </Button>
             </>
@@ -75,9 +78,10 @@ const mapStatesProps = (state) => {
 };
 const mapDispatchProps = (dispatch) => {
   return {
-    toggleModal: () => {
+    toggleModal: (id) => {
       dispatch({
         type: TOGGLE_CLASSIFY_EDIT_MODAL,
+        value: id,
       });
     },
   };

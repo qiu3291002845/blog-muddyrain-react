@@ -23,8 +23,9 @@
   }
   .ant-input-number-input,
   .ant-input,
-  .ant-picker {
-    height: 2.75rem;
-    border-radius: 5px;
+  .ant-picker,
+  .ant-select-selector {
+    height: 2.75rem !important;
+    border-radius: 5px !important;
   }
 }

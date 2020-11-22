@@ -59,7 +59,7 @@ const columns = [
       return (
         <div>
           <Button type="primary">
-            <Link to={`/userEdit/${text.user_id}`}>编辑</Link>
+            <Link to={`/home/userEdit/${text.user_id}`}>编辑</Link>
           </Button>
         </div>
       );

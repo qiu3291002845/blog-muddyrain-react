@@ -1,25 +1,36 @@
 import React from "react";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Home from "../page/Home";
 import User from "../page/User/user";
 import Classify from "../page/Classify/classify";
 import UserEdit from "../page/User/components/edit";
+import Label from "../page/Label/label";
+import Article from "../page/Articles/article";
+
+import Login from "../page/Login/login";
+import "./router.scss";
 class BasicRoute extends React.Component {
   render() {
     return (
       <>
-        <HashRouter>
+        <BrowserRouter>
           <Switch>
-            <Route path="/">
+            <Route path="/home">
               <Home>
-                <Route exact path="/" component={User} />
-                <Route exact path="/classify" component={Classify} />
-                <Route exact path="/userEdit" component={UserEdit} />
-                <Route exact path="/userEdit/:id" component={UserEdit} />
+                <Switch>
+                  <Route path="/home/user" component={User} />
+                  <Route path="/home/classify" component={Classify} />
+                  <Route path="/home/label" component={Label} />
+                  <Route path="/home/article" component={Article} />
+
+                  <Route path="/home/userEdit/:id" component={UserEdit} />
+                  <Redirect exact to="/home" from="/" />
+                </Switch>
               </Home>
             </Route>
+            <Route exact path="/" component={Login} />
           </Switch>
-        </HashRouter>
+        </BrowserRouter>
       </>
     );
   }

@@ -14,6 +14,7 @@ class Home extends React.Component {
       collapsed: !this.state.collapsed,
     });
   };
+
   render() {
     return (
       <Layout>

@@ -16,14 +16,7 @@ import axios from "axios";
 import { BaseUrl } from "../../../Tools/Config";
 class UserEdit extends React.Component {
   state = {
-    userInfo: {
-      user_name: "",
-      user_email: "",
-      user_phone: "",
-      user_age: "",
-      user_birthday: "",
-      user_nickname: "",
-    },
+    userInfo: {},
     loading: false,
   };
   findUser = async () => {
@@ -38,7 +31,7 @@ class UserEdit extends React.Component {
     await this.findUser();
   }
   changeInput = (e, v) => {
-    switch (e.target.id) {
+    switch (e.target.name) {
       case "user_name":
         this.setState({
           userInfo: {
@@ -97,7 +90,7 @@ class UserEdit extends React.Component {
       this.state.userInfo
     );
     message.info(data.message);
-    this.props.history.push("/");
+    this.props.history.push("/home/user");
   };
   onFinishFailed = async () => {
     message.error("错了");
@@ -129,81 +122,83 @@ class UserEdit extends React.Component {
             onFinish={this.onFinish}
             labelCol={{ span: 2, offset: 0 }}
           >
-            {this.state.userInfo.user_name ? (
-              <>
-                <Form.Item
-                  label="用户名"
+            <>
+              <Form.Item
+                label="用户名"
+                rules={[
+                  { required: true, message: "Please input your user_name!" },
+                ]}
+              >
+                <Input
+                  value={userInfo.user_name}
                   name="user_name"
-                  rules={[
-                    { required: true, message: "Please input your user_name!" },
-                  ]}
                   onChange={this.changeInput}
-                  initialValue={this.state.userInfo.user_name}
-                >
-                  <Input placeholder="请输入用户名" />
-                </Form.Item>
-                <Form.Item
-                  label="电子邮箱"
+                  placeholder="请输入用户名"
+                />
+              </Form.Item>
+              <Form.Item
+                label="电子邮箱"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your user_email!",
+                  },
+                ]}
+              >
+                <Input
                   name="user_email"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please input your user_email!",
-                    },
-                  ]}
-                  initialValue={this.state.userInfo.user_email}
+                  value={userInfo.user_email}
                   onChange={this.changeInput}
-                >
-                  <Input placeholder="请输入电子邮箱" />
-                </Form.Item>
-                <Form.Item
-                  label="手机号码"
+                  placeholder="请输入电子邮箱"
+                />
+              </Form.Item>
+              <Form.Item
+                label="手机号码"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your user_phone!",
+                  },
+                ]}
+              >
+                <Input
                   name="user_phone"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please input your user_phone!",
-                    },
-                  ]}
-                  initialValue={this.state.userInfo.user_phone}
+                  value={userInfo.user_phone}
                   onChange={this.changeInput}
-                >
-                  <Input placeholder="请输入手机号码" />
-                </Form.Item>
-                <Form.Item
-                  label="用户昵称"
+                  placeholder="请输入手机号码"
+                />
+              </Form.Item>
+              <Form.Item label="用户昵称">
+                <Input
+                  onChange={this.changeInput}
+                  value={userInfo.user_nickname}
+                  placeholder="请输入用户昵称"
                   name="user_nickname"
-                  onChange={this.changeInput}
-                  initialValue={this.state.userInfo.user_nickname}
-                >
-                  <Input placeholder="请输入用户昵称" />
-                </Form.Item>
-                <Form.Item label="用户生日" name="user_birthday">
-                  <DatePicker
-                    placeholder={
-                      this.state.userInfo.user_birthday
-                        ? this.state.userInfo.user_birthday
-                        : "请输入用户生日"
-                    }
-                    onChange={(e, v) =>
-                      this.changeInput({ target: { id: "user_birthday" } }, v)
-                    }
-                  />
-                </Form.Item>
-                <Form.Item
-                  label="用户年龄"
+                />
+              </Form.Item>
+              <Form.Item label="用户生日">
+                <DatePicker
+                  name="user_birthday"
+                  placeholder={
+                    userInfo.user_birthday ? userInfo.user_birthday : "用户生日"
+                  }
+                  onChange={(e, v) =>
+                    this.changeInput({ target: { name: "user_birthday" } }, v)
+                  }
+                />
+              </Form.Item>
+              <Form.Item label="用户年龄">
+                <InputNumber
                   name="user_age"
-                  initialValue={this.state.userInfo.user_age}
-                >
-                  <InputNumber
-                    placeholder="用户年龄"
-                    onChange={(e) =>
-                      this.changeInput({ target: { id: "user_age" } }, e)
-                    }
-                  />
-                </Form.Item>
-              </>
-            ) : null}
+                  placeholder="用户年龄"
+                  value={userInfo.user_age}
+                  onChange={(e) =>
+                    this.changeInput({ target: { name: "user_age" } }, e)
+                  }
+                />
+              </Form.Item>
+            </>
+
             <Form.Item label="用户头像">
               <Upload
                 name="file"

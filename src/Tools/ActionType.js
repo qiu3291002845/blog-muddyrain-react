@@ -1,6 +1,9 @@
 export const TOGGLE_COLLAPSED = "toggle_collapsed";
 export const USER_REQUEST_DATA = "user_request_data";
 export const CLASSIFY_REQUEST_DATA = "classify_request_data";
+export const LABEL_REQUEST_DATA = "label_request_data";
+export const ARTICLE_REQUEST_DATA = "article_request_data";
 export const USER_ENTER_SEARCH = "user_search";
 export const USER_INPUT_SEARCH = "user_input_search";
 export const TOGGLE_CLASSIFY_EDIT_MODAL = "toggle_classify_edit_modal";
+export const TOGGLE_LABEL_EDIT_MODAL = "toggle_label_edit_modal";

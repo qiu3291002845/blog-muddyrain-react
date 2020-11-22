@@ -4,6 +4,8 @@ import {
   UserReducer,
   GlobalReducer,
   ClassifyReducer,
+  LabelReducer,
+  ArticleReducer,
 } from "./reducer";
 import { defaultSaga } from "./saga";
 import createSagaMiddleware from "redux-saga";
@@ -15,6 +17,8 @@ export default createStore(
     user: UserReducer,
     global: GlobalReducer,
     classify: ClassifyReducer,
+    label: LabelReducer,
+    article: ArticleReducer,
   }),
   {},
   applyMiddleware(sagaMiddleware)

@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { ARTICLE_REQUEST_DATA } from "../../Tools/ActionType";
 import ArticleCard from "./components/card";
+import ArticleEdit from "./components/edit";
 class Article extends React.Component {
   componentDidMount() {
     this.props.dispatch({
@@ -14,6 +15,7 @@ class Article extends React.Component {
     return (
       <>
         <ArticleCard list={article.dataSource} />
+        {!article.visible ? <ArticleEdit /> : null}
       </>
     );
   }

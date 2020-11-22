@@ -1,6 +1,7 @@
 import { ARTICLE_RESPONSE_DATA } from "../../Tools/SagaType";
 const initState = {
   dataSource: [],
+  visible: false,
 };
 export const ArticleReducer = (state = initState, action) => {
   switch (action.type) {

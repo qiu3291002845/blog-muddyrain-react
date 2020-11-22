@@ -4,3 +4,6 @@ export const fromDate = (date) => {
   const newDate = new Date(date).toLocaleDateString().split("/").join("-");
   return newDate + " " + newTime;
 };
+export const ellipsis = (val) => {
+  return val.slice(0, 10) + "...";
+};

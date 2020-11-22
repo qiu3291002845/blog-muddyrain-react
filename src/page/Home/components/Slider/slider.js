@@ -21,7 +21,6 @@ class Slider extends React.Component {
   };
   findUser = async (id) => {
     const { data } = await Axios.get(`${BaseUrl}/user/${id}`);
-    console.log(data);
     this.setState({
       userInfo: data.data,
     });
